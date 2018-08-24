@@ -54,9 +54,8 @@ const keyframeEffect = new KeyframeEffect(
     }
   ],
   {
-    duration: 1000,
-    easing: 'ease-out',
-    iterations: 3,
+    duration: 3000,
+    easing: 'ease-in-out',
     fill: 'both'
   });
 
@@ -64,6 +63,48 @@ const animation = new Animation(
   keyframeEffect,
   document.timeline
 );
+
+animation.ready.then(() => {
+  console.log('animation ready');
+});
+
+animation.ready.then(() => {
+  console.log('animation ready');
+});
+
+animation.finished.then(() => {
+  console.log('animation finish');
+});
+
+// let timer;
+// timer = setInterval(() => {
+//   console.log(animation.playState);
+//   if (animation.playState === 'finished') {
+//     clearInterval(timer);
+//     animation.finish();
+//   }
+// });
+
+// let timer;
+// timer = setInterval(() => {
+//   if (animation.playState === 'finished') {
+//     clearInterval(timer);
+//   }
+//   console.log(animation.playState);
+// });
+
+// setTimeout(() => {
+//   animation.play();
+// }, 1000);
+
+// setTimeout(() => {
+//   animation.pause();
+// }, 1100);
+
+// setTimeout(() => {
+//   animation.play();
+// }, 1500);
+
 
 startBtn.addEventListener('click', () => { animation.play(); });
 pauseBtn.addEventListener('click', () => { animation.pause(); });
